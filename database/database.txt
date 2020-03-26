@@ -1,0 +1,124 @@
+USE [master]
+GO
+/****** Object:  Database [Inventario]    Script Date: 25/03/2020 21:51:27 ******/
+CREATE DATABASE [Inventario]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Inventario', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\Inventario.mdf' , SIZE = 3264KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'Inventario_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\Inventario_log.ldf' , SIZE = 816KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [Inventario] SET COMPATIBILITY_LEVEL = 120
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Inventario].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Inventario] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Inventario] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Inventario] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Inventario] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Inventario] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Inventario] SET AUTO_CLOSE ON 
+GO
+ALTER DATABASE [Inventario] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Inventario] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Inventario] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Inventario] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Inventario] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Inventario] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Inventario] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Inventario] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Inventario] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [Inventario] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Inventario] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Inventario] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Inventario] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Inventario] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Inventario] SET READ_COMMITTED_SNAPSHOT ON 
+GO
+ALTER DATABASE [Inventario] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Inventario] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [Inventario] SET  MULTI_USER 
+GO
+ALTER DATABASE [Inventario] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Inventario] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Inventario] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Inventario] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE [Inventario] SET DELAYED_DURABILITY = DISABLED 
+GO
+USE [Inventario]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 25/03/2020 21:51:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Inventario]    Script Date: 25/03/2020 21:51:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Inventario](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](max) NULL,
+	[Fecha] [nvarchar](max) NULL,
+	[Proveedor] [nvarchar](max) NULL,
+	[Precio] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Inventario] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20200325020015_Initialize', N'3.1.3')
+GO
+SET IDENTITY_INSERT [dbo].[Inventario] ON 
+GO
+INSERT [dbo].[Inventario] ([Id], [Nombre], [Fecha], [Proveedor], [Precio]) VALUES (1, N'Cardocome', N'20-02-2020', N'Benefits', N'500')
+GO
+INSERT [dbo].[Inventario] ([Id], [Nombre], [Fecha], [Proveedor], [Precio]) VALUES (2, N'dbckj', N'knlnlklk', N'sdknfndelk', N'nlknnlk')
+GO
+INSERT [dbo].[Inventario] ([Id], [Nombre], [Fecha], [Proveedor], [Precio]) VALUES (3, N'omega', N'20/03/2020', N'karoxlabs', N'150 pesos')
+GO
+SET IDENTITY_INSERT [dbo].[Inventario] OFF
+GO
+USE [master]
+GO
+ALTER DATABASE [Inventario] SET  READ_WRITE 
+GO
